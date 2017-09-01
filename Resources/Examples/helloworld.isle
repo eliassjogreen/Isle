@@ -1,0 +1,5 @@
+import ("general");
+
+println("hello world!");
+
+# Prints "hello world!"

@@ -1,0 +1,22 @@
+import ("general");
+
+function isPrime(n, d){
+    if (d == 1) {
+		return true;
+	} else {
+        if (n % d == 0){
+            return false;
+        }
+        else {
+			if(n % d == 0) {
+				return false;
+			} else {
+				return isPrime(n, d - 1);
+			}
+		}
+    }
+}
+
+println(isPrime(11, 0));
+
+# Prints true

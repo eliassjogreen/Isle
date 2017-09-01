@@ -1,0 +1,9 @@
+import ("general");
+
+println(10 % 2);
+
+# Prints true
+
+println(9 % 2);
+
+# Prints false
