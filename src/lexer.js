@@ -21,7 +21,7 @@
 function stream(input) {
     var current = null;
 
-    var keywords = ["function", "return", "if", "else", "else", "true", "false", "null"];
+    var keywords = ["function", "return", "if", "else", "else", "true", "false"];
 
     var puncCh = ",;(){}[]";
     var opCh = "+-*/%=&|<>!";
