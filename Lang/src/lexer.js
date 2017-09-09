@@ -144,7 +144,7 @@ function stream(input) {
     /**
      * readNumber - Reads unsigned numbers
      *
-     * @return {object} Returns a node
+     * @return {object} Returns a token
      */
     function readNumber() {
         var dot = false;
@@ -166,7 +166,7 @@ function stream(input) {
     /**
      * readIdent - Reads variable names and keywords
      *
-     * @return {object} returns a node
+     * @return {object} returns a token
      */
     function readIdent() {
         const id = readWhile(isId);
@@ -207,7 +207,7 @@ function stream(input) {
     /**
      * readString - Reads everything within double qoutes
      *
-     * @return {object} Returns node
+     * @return {object} Returns token
      */
     function readString() {
         return {
@@ -239,9 +239,9 @@ function stream(input) {
 
 
     /**
-     * readNext - Reads next node by checking character and calling functions which handle the rest
+     * readNext - Reads next token by checking character and calling functions which handle the rest
      *
-     * @return {object} Returns node
+     * @return {object} Returns token
      */
     function readNext() {
         readWhile(isWhitespace);
@@ -271,18 +271,18 @@ function stream(input) {
     }
 
     /**
-     * peek - Peeks on the next node
+     * peek - Peeks on the next token
      *
-     * @return {object} Returns node
+     * @return {object} Returns token
      */
     function peek() {
         return current || (current = readNext());
     }
 
     /**
-     * next - Goes to next node and returns it
+     * next - Goes to next token and returns it
      *
-     * @return {object} Returns node
+     * @return {object} Returns token
      */
     function next() {
         var tok = current;
