@@ -18,14 +18,30 @@
 
 "use strict";
 
+
+/**
+ * stream (lexer.stream) - The lexer
+ *
+ * @param  {object} input - Takes input stream as input
+ * @return {object} Returns lexer functions for parser
+ */
 function stream(input) {
+    /** The current token */
     var current = null;
 
+    /** All of the keywords */
     var keywords = ["function", "return", "if", "else", "else", "true", "false"];
 
+    /** The punctuation characters */
     var puncCh = ",;(){}[]";
+
+    /** The operator characters */
     var opCh = "+-/*%=&|<>!";
+
+    /** The id alpha characters */
     var idAlpha = "?!-<>=0123456789";
+
+    /** The comment character, multiline starts with two comment characters and ends with one comment character */
     var comment = "#";
 
     return {
