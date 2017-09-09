@@ -24,7 +24,7 @@ function stream(input) {
     var keywords = ["function", "return", "if", "else", "else", "true", "false"];
 
     var puncCh = ",;(){}[]";
-    var opCh = "+-*/%=&|<>!";
+    var opCh = "+-/*%=&|<>!";
     var idAlpha = "?!-<>=0123456789";
     var comment = "#";
 
@@ -37,36 +37,86 @@ function stream(input) {
 
     /* Predicates */
 
+    /**
+     * isKw - Checks if param is a keyword
+     *
+     * @param  {string} w - input character
+     * @return {boolean} Returns true if param w is in keywords array
+     */
     function isKw(w) {
         return keywords.indexOf(w) >= 0;
     }
 
+    /**
+     * isDigit - Tests with regex if param ch is number
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if test returns true
+     */
     function isDigit(ch) {
         return /\d/i.test(ch);
     }
 
+    /**
+     * isIdStart - Checks if param ch is any character between a-z in lowercase or capital or underscore
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if param ch is any of these characters: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_
+     */
     function isIdStart(ch) {
         return /[a-zA-Z_]/i.test(ch);
     }
 
+    /**
+     * isId - Checks if param ch is any of the alpha characters or isIdStart
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if param ch is either isIdStart or idAlpha
+     */
     function isId(ch) {
         return isIdStart(ch) || idAlpha.indexOf(ch) >= 0;
     }
 
+    /**
+     * isOpCh - Checks if param ch is any of the operator characters
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if param ch is any of these characters: +-/*%=&|<>!
+     */
     function isOpCh(ch) {
         return opCh.indexOf(ch) >= 0;
     }
 
+    /**
+     * isPunc - Checks if param ch is any of the punctuation characters
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if param ch is any of these characters: ,;(){}[]
+     */
     function isPunc(ch) {
         return puncCh.indexOf(ch) >= 0;
     }
 
+
+    /**
+     * isWhitespace - Checks if param ch is any whitespace character
+     *
+     * @param  {string} ch - input character
+     * @return {boolean} Returns true if ch is any whitespace character
+     */
     function isWhitespace(ch) {
         return /\s/.test(ch);
     }
 
     /* Predicates */
 
+
+    /**
+     * readWhile - Returns string when predicate returns false
+     *
+     * @param  {Function} predicate - funtion that returns boolean and takes a character as input
+     * @return {string} Returns string when predicate returns false
+     */
     function readWhile(predicate) {
         var str = "";
         while (!input.eof() && predicate(input.peek()))
@@ -74,6 +124,12 @@ function stream(input) {
         return str;
     }
 
+
+    /**
+     * readNumber - Reads unsigned numbers
+     *
+     * @return {object} Returns a node
+     */
     function readNumber() {
         var dot = false;
         const number = readWhile(ch => {
@@ -90,6 +146,12 @@ function stream(input) {
         };
     }
 
+
+    /**
+     * readIdent - Reads variable names and keywords
+     *
+     * @return {object} returns a node
+     */
     function readIdent() {
         const id = readWhile(isId);
         return {
@@ -98,6 +160,13 @@ function stream(input) {
         };
     }
 
+
+    /**
+     * readEscaped - Reads escaped characters
+     *
+     * @param  {string} end - End character
+     * @return {string} Returns all characters until the escaped characters
+     */
     function readEscaped(end) {
         var escaped = false,
             str = "";
@@ -118,6 +187,12 @@ function stream(input) {
         return str;
     }
 
+
+    /**
+     * readString - Reads everything within double qoutes
+     *
+     * @return {object} Returns node
+     */
     function readString() {
         return {
             type: "str",
@@ -125,6 +200,10 @@ function stream(input) {
         };
     }
 
+
+    /**
+     * skipComment - skips single line comments
+     */
     function skipComment() {
         readWhile(function(ch) {
             return ch !== ("\n");
@@ -132,6 +211,9 @@ function stream(input) {
         input.next();
     }
 
+    /**
+     * skipCommentMultiline - skips multiline comments
+     */
     function skipCommentMultiline() {
         readWhile(function(ch) {
             return ch !== comment;
@@ -139,6 +221,12 @@ function stream(input) {
         input.next();
     }
 
+
+    /**
+     * readNext - Reads next node by checking character and calling functions which handle the rest
+     *
+     * @return {object} Returns node
+     */
     function readNext() {
         readWhile(isWhitespace);
         if (input.eof()) return null;
@@ -166,16 +254,31 @@ function stream(input) {
         input.croak("Can't handle character: " + ch);
     }
 
+    /**
+     * peek - Peeks on the next node
+     *
+     * @return {object} Returns node
+     */
     function peek() {
         return current || (current = readNext());
     }
 
+    /**
+     * next - Goes to next node and returns it
+     *
+     * @return {object} Returns node
+     */
     function next() {
         var tok = current;
         current = null;
         return tok || readNext();
     }
 
+    /**
+     * eof - Returns true if we have reached end of line (eof)
+     *
+     * @return {boolean} Returns true if the peek function returns null
+     */
     function eof() {
         return peek() === null;
     }
