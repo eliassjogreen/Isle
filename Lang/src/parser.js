@@ -292,7 +292,7 @@ function parse(input) {
     /**
      * parseToplevel - The function that parses the whole program is probably the simplest
      *
-     * @return {type} Returns a program action tree node
+     * @return {object} Returns a program action tree node
      */
     function parseToplevel() {
       var prog = [];
