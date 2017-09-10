@@ -5,6 +5,6 @@ const parser =  require('./src/parser.js');
 
 var i = new input.stream('import("general"); if (true) { println("Hello world!"); }');
 var ls = new lexer.stream(i);
-var p = new parser.stream(ls);
+var p = new parser.parse(ls);
 
 console.log(JSON.stringify(p));
