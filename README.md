@@ -16,8 +16,7 @@
                `--...--'`
 ```
 
-# Isle Programming Language
-
+# Isle Programming Language 🏝️
 
 
 ## Usage
