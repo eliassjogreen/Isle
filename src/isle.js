@@ -20,7 +20,7 @@
 
 if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
     // From https://stackoverflow.com/a/19625245
-    function require(url){
+    var require = function(url){
         if (url.toLowerCase().substr(-3)!=='.js') url+='.js'; // to allow loading without js suffix;
         if (!require.cache) require.cache=[]; //init cache
         var exports=require.cache[url]; //get from cache
@@ -59,7 +59,7 @@ const input = require('./input');
 const lexer = require('./lexer');
 const parser = require('./parser');
 const env = require('./env');
-const eval = require('./eval');
+const evaluate = require('./eval');
 
 (function () {
     var isle = (function () {
