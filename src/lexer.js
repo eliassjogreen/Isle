@@ -133,6 +133,7 @@ function stream(input) {
     }
 
     function skipCommentMultiline() {
+        input.next();
         readWhile(function(ch) {
             return ch !== comment;
         });
@@ -144,6 +145,7 @@ function stream(input) {
         if (input.eof()) return null;
         var ch = input.peek();
         if (ch === comment) {
+            input.next();
             if (input.peek() === comment) {
                 skipCommentMultiline();
             } else {

@@ -1,5 +1,5 @@
 import ("general");
 
-println("hello world!");
+println ("hello world!");
 
 # Prints "hello world!"
