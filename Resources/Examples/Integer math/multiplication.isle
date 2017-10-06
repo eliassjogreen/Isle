@@ -1,5 +1,0 @@
-import ("general");
-
-println(2 * 4);
-
-# Prints 8

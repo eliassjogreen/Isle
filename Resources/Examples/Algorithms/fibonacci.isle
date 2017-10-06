@@ -1,9 +1,9 @@
 import ("general");
 
 function fibonacci(n) {
-	if (n < 2){
+	if (n < 2) {
 		return 1;
-	} else{
+	} else {
 		return fibonacci(n-2) + fibonacci(n-1);
 	}
 }

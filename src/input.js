@@ -46,7 +46,7 @@ function stream(input) {
     }
 
     function croak(msg) {
-        throw new Error(`${msg} (${line}:${col})`);
+        throw (`${msg} (${line}:${col})`);
     }
 }
 

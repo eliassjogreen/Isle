@@ -21,13 +21,13 @@
 function applyOp(op, a, b) {
   function num(x) {
     if (typeof x != "number")
-      console.error("Expected number but got " + x);
+      throw new Error(`Expected number but got ${x}`);
     return x;
   }
 
   function div(x) {
     if (num(x) == 0)
-      console.error("Divide by zero");
+      throw new Error(`Divide by zero`);
     return x;
   }
 
@@ -54,7 +54,7 @@ function applyOp(op, a, b) {
     case "==" : return a === b;
     case "!=" : return a !== b;
   }
-  console.error("Can't apply operator " + op);
+  throw new Error(`Can't apply operator ${op}`);
 }
 
 function evaluate(exp, env, callback) {
@@ -71,7 +71,7 @@ function evaluate(exp, env, callback) {
 
   case "assign":
     if (exp.left.type != "var")
-      console.error("Cannot assign to " + JSON.stringify(exp.left));
+      throw new Error("Cannot assign to " + JSON.stringify(exp.left));
     evaluate(exp.right, env, function(right) {
       callback(env.set(exp.left.value, right));
     });
@@ -119,7 +119,7 @@ function evaluate(exp, env, callback) {
     return;
 
   default:
-    console.error("I don't know how to evaluate " + exp.type);
+    throw new Error("I don't know how to evaluate " + exp.type);
   }
 }
 
