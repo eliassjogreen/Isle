@@ -6,6 +6,7 @@ const parser =  require('./src/parser.js');
 const eval = require('./src/eval.js');
 
 let code;
+
 if (process.argv[0] === 'isle') {
     code = fs.readFileSync(process.argv[1]);
 } else {
@@ -20,7 +21,7 @@ code = code.toString();
 
 //console.log(code);
 
-//var environment = new env.environment();
+var environment = new env.environment();
 let lexerStream = new lexer.stream(new input.stream(code));
 
 //while (!lexerStream.eof()) {
@@ -29,8 +30,8 @@ let lexerStream = new lexer.stream(new input.stream(code));
 
 let ast = new parser.stream(lexerStream);
 
-console.log(JSON.stringify(ast));
+//console.log(JSON.stringify(ast));
 
-//eval.evaluate(ast, environment, function (result) {
-    //console.log(result);
-//});
+eval.evaluate(ast, environment, function (result) {
+    console.log(result);
+});

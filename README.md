@@ -16,7 +16,7 @@
                `--...--'`
 ```
 
-# Isle Programming Language 🏝️
+# *Isle* Programming Language 🏝️
 
 
 ## Usage
@@ -45,7 +45,7 @@ import ("general");
 function fibonacci(n) {
 	if (n < 2){
 		return 1;
-	} else{
+	} else {
 		return fibonacci(n-2) + fibonacci(n-1);
 	}
 }
@@ -57,3 +57,11 @@ println(fibonacci(7));
 
 
 
+## Helpful resources
+
+#### Links
+
+* [Language study](http://rigaux.org/language-study/)
+    * [Syntax across languages](http://rigaux.org/language-study/syntax-across-languages/)
+* [Lisperator.net](http://lisperator.net/)
+    * [λanguage](http://lisperator.net/pltut/) (What *Isle* is based on)
