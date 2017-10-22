@@ -20,12 +20,17 @@
 
 "use strict";
 
-if (typeof window === 'undefined' && typeof window.document === 'undefined') {
+if (typeof window === 'undefined') {
 
     const fs = require('fs');
 
-    var importLib = function(env, lib) {
+    var importLib = function(env, lib, defaultdir) {
         var extension = lib.match(/\.[0-9a-zA-Z$#&+@!()-{}'`_~, ]+$/i);
+
+        if (!defaultdir.endsWith('\\' || '/')) {
+            defaultdir += '\\'
+        }
+
         if (extension == null || extension !== (".js" || ".isle")) {
             extension = ".js";
             lib = lib + extension;
@@ -39,12 +44,8 @@ if (typeof window === 'undefined' && typeof window.document === 'undefined') {
                 addDefs(library);
             }
         } else if (!path && extension == ".js") {
-            if (fileExists(__dirname + "\\lib\\" + lib)) {
+            if (defaultdir + lib)) {
                 lib = __dirname + "\\lib\\" + lib;
-                var library = require(lib);
-                addDefs(library);
-            } else if (fileExists(process.argv[2] + "\\" + lib)) {
-                lib = process.argv[2] + "\\" + lib;
                 var library = require(lib);
                 addDefs(library);
             }
@@ -68,6 +69,7 @@ if (typeof window === 'undefined' && typeof window.document === 'undefined') {
             }
         }
     }
+    module.exports = importLib;
 } else {
     throw new Error("import function is not yet implemented in browser");
 }
