@@ -38,7 +38,7 @@ function parse(input) {
       "+": 10, "-": 10,
       "*": 11, "/": 11, "%": 11
     };
-    
+
     var FALSE = { type: "bool", value: false };
     var TRUE = { type: "bool", value: true };
 
@@ -268,7 +268,7 @@ function parse(input) {
           input.next();
           var right = maybeBinary(parseAtom(), hisPrec);
           var binary = {
-            type     : tok.value == "=" ? "assign" : "binary",
+            type     : tok.value === "=" ? "assign" : "binary",
             operator : tok.value,
             left     : left,
             right    : right

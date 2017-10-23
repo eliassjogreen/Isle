@@ -1,0 +1,5 @@
+import("general", "math", "time");
+
+h = 120;
+
+print(h);

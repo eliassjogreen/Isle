@@ -24,7 +24,7 @@ if (typeof window === 'undefined') {
 
     const fs = require('fs');
 
-    var importLib = function(env, lib, defaultdir) {
+    function importLib(env, lib, defaultdir) {
         var extension = lib.match(/\.[0-9a-zA-Z$#&+@!()-{}'`_~, ]+$/i);
 
         if (!defaultdir.endsWith('\\' || '/')) {
@@ -41,21 +41,19 @@ if (typeof window === 'undefined') {
         if (path && extension == ".js") {
             if (fileExists(lib)) {
                 var library = require(lib);
-                addDefs(library);
             }
         } else if (!path && extension == ".js") {
-            if (defaultdir + lib)) {
-                lib = __dirname + "\\lib\\" + lib;
-                var library = require(lib);
-                addDefs(library);
-            }
+            lib = defaultdir + lib;
+            let library = require(lib);
+            addDefs(library);
         }
 
         function addDefs(library) {
-            var functions = library.functions();
-            for (var key in functions) {
+            let functions = library.functions();
+            for (let key in functions) {
                 if (functions.hasOwnProperty(key)) {
-                    env = env.extend();
+                    let func = functions[key]
+                    env.extend();
                     env.def(key, functions[key]);
                 }
             }
@@ -69,7 +67,9 @@ if (typeof window === 'undefined') {
             }
         }
     }
-    module.exports = importLib;
+    module.exports = {
+        importLib: importLib
+    };
 } else {
     throw new Error("import function is not yet implemented in browser");
 }

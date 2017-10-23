@@ -4,7 +4,7 @@ const input = require('./src/input.js');
 const lexer =  require('./src/lexer.js');
 const parser =  require('./src/parser.js');
 const eval = require('./src/eval.js');
-const imp = require('./src/import.js');
+const Import = require('./src/import.js');
 
 let code;
 
@@ -25,26 +25,18 @@ code = code.toString();
 let environment = new env.environment();
 let lexerStream = new lexer.stream(new input.stream(code));
 
-environment.def('import', function (callback, lib) {
-    let success = true;
-    try {
-        imp.importlib(environment, lib);
-    } catch (e) {
-        success = false;
+environment.def('import', function (callback, ...libs) {
+    for (let i = 0; i < libs.length; i++) {
+        Import.importLib(environment, libs[i], "C:\\Users\\Elias\\Desktop\\kod\\Isle\\Github\\lib");
     }
-    callback(success);
+    callback(false);
 });
-
-//environment.def('println', function println(callback, txt) {
-//    console.log(txt);
-//    callback(txt);
-//});
 
 //while (!lexerStream.eof()) {
 //    console.log(lexerStream.next());
 //}
 
-let ast = new parser.stream(lexerStream);
+let ast = new parser.parse(lexerStream);
 
 //console.log(JSON.stringify(ast));
 

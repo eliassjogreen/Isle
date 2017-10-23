@@ -39,7 +39,7 @@ function stream(input) {
     var opCh = "+-*/%=&|<>!";
 
 	/** The id alpha characters */
-    var idAlpha = "?!-<>=0123456789";
+    var idAlpha = ".?!-<>=0123456789";
 
 	/** The comment character, multiline starts with two comment characters and ends with one comment character */
     var comment = "#";
@@ -52,7 +52,7 @@ function stream(input) {
 
 	/** The character that indicates a decimal number */
     var decimal = ".";
-    
+
     return {
         next,
         peek,
@@ -267,7 +267,7 @@ function stream(input) {
             return readNext();
         }
 
-        if (ch === '"') return readString();
+        if (ch === qoute) return readString();
         if (isDigit(ch)) return readNumber();
         if (isIdStart(ch)) return readIdent();
         if (isPunc(ch)) return {

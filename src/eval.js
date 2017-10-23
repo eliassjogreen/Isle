@@ -43,6 +43,7 @@ function applyOp(op, a, b) {
             return num(a) / div(b);
         case "%":
             return num(a) % div(b);
+
             // Bitwise operators
         case "<<":
             return num(a) << num(b);
@@ -54,6 +55,7 @@ function applyOp(op, a, b) {
             return num(a) | num(b);
         case "^":
             return num(a) ^ num(b);
+            
             // Boolean operators
         case "&&":
             return a !== false && b;
