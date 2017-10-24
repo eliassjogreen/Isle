@@ -26,10 +26,16 @@ let environment = new env.environment();
 let lexerStream = new lexer.stream(new input.stream(code));
 
 environment.def('import', function (callback, ...libs) {
-    for (let i = 0; i < libs.length; i++) {
-        Import.importLib(environment, libs[i], "C:\\Users\\Elias\\Desktop\\kod\\Isle\\Github\\lib");
+    let success = true;
+    try {
+        for (let i = 0; i < libs.length; i++) {
+            Import.importLib(environment, libs[i], "C:\\Users\\Elias\\Desktop\\kod\\Isle\\Github\\lib");
+        }
+    } catch (e) {
+        success = false;
     }
-    callback(false);
+
+    callback(success);
 });
 
 //while (!lexerStream.eof()) {

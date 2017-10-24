@@ -36,7 +36,7 @@ function stream(input) {
     var puncCh = ",;(){}[]";
 
 	/** The operator characters */
-    var opCh = "+-*/%=&|<>!";
+    var opCh = "+-*/%=&|<>!^";
 
 	/** The id alpha characters */
     var idAlpha = ".?!-<>=0123456789";

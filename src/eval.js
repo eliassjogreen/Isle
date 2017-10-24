@@ -39,6 +39,8 @@ function applyOp(op, a, b) {
             return num(a) - num(b);
         case "*":
             return num(a) * num(b);
+        case "**":
+            return num(a) ** num(b);
         case "/":
             return num(a) / div(b);
         case "%":
@@ -55,7 +57,7 @@ function applyOp(op, a, b) {
             return num(a) | num(b);
         case "^":
             return num(a) ^ num(b);
-            
+
             // Boolean operators
         case "&&":
             return a !== false && b;
@@ -79,7 +81,7 @@ function applyOp(op, a, b) {
 
 function evaluate(exp, env, callback) {
     switch (exp.type) {
-        case "number":
+        case "num":
         case "str":
         case "bool":
             callback(exp.value);

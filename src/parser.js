@@ -36,7 +36,8 @@ function parse(input) {
       "<": 8, ">": 8, "<=": 8, ">=": 8,
       "<<": 9, ">>": 9,
       "+": 10, "-": 10,
-      "*": 11, "/": 11, "%": 11
+      "*": 11, "/": 11, "%": 11,
+      "**": 12, 
     };
 
     var FALSE = { type: "bool", value: false };
@@ -213,7 +214,7 @@ function parse(input) {
         if (isKw("if")) return parseIf();
         if (isKw("true") || isKw("false")) return parseBool();
         var tok = input.next();
-        if (tok.type == "var" || tok.type == "number" || tok.type == "str")
+        if (tok.type == "var" || tok.type == "num" || tok.type == "str")
           return tok;
         unexpected();
       });
