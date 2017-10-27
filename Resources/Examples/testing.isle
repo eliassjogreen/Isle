@@ -1,10 +1,11 @@
-success = import("general", "math");
+success = import("general", "console", "math");
 
 if (success) {
     println("Successfully imported libraries!");
     {
         name = "Elias";
         println("Hello ", name, "!");
+        println(math.pi());
     }
 } else {
     println("Import of a library failed");

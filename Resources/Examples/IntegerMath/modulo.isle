@@ -1,9 +1,9 @@
-import ("general");
+import ("console");
 
-println(10 % 2);
+println (10 % 2);
 
-# Prints true
+# Prints 0
 
-println(9 % 2);
+println (9 % 2);
 
-# Prints false
+# Prints 1

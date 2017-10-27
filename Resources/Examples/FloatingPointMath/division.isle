@@ -1,5 +1,5 @@
-import ("general");
+import ("console");
 
-println(3.12 / 2.0);
+println (3.12 / 2.0);
 
 # Prints 1.56

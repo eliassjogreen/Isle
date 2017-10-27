@@ -1,5 +1,5 @@
-import ("general");
+import ("console");
 
-println(4 / 2);
+println (4 / 2);
 
 # Prints 2

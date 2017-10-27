@@ -1,5 +1,5 @@
-import ("general");
+import ("console");
 
-println(17 - 12);
+println (17 - 12);
 
 # Prints 5
