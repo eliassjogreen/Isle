@@ -18,7 +18,7 @@
 
 "use strict";
 
-if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
+if (typeof window !== 'undefined') {
     // From https://stackoverflow.com/a/19625245
     function require(url) {
         if (url.toLowerCase().substr(-3) !== '.js') url += '.js'; // to allow loading without js suffix;
@@ -60,30 +60,32 @@ if (typeof window !== 'undefined' && typeof window.document !== 'undefined') {
 
 }
 
-const input = require('./input.js');
-const lexer = require('./lexer.js');
+const env    = require('./env.js');
+const input  = require('./input.js');
+const lexer  = require('./lexer.js');
 const parser = require('./parser.js');
-const env = require('./env.js');
 const evaluate = require('./eval.js');
+const Import = require('./import.js');
 
 (function() {
-    var isle = (function() {
-        var isle = function() {
-            var browser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
-            var node = !browser && typeof global !== 'undefined' && typeof process !== 'undefined';
+    var isle = class isle {
+        constructor(environment = new env.environment()) {
+            this.environment = environment;
+        }
 
-            if (browser)
-                global = window;
+        static interpret(code) {
+            this.inputStream = new input.stream(code);
+            this.lexer = new lexer.stream(this.inputStream);
+            this.ast = parser.parse(this.lexer);
+            evaluate.evaluate(this.ast, this.environment, function (result) {
+                return result;
+            });
+        }
+    }
 
-            isle.browser = browser;
-            isle.node = node;
-        };
-
-        return isle;
-    })();
-
-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
-        module.exports = isle;
-    else
+    if (typeof window !== 'undefined') {
         window.isle = isle;
+    } else {
+        module.exports = isle;
+    }
 })();

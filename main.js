@@ -27,9 +27,10 @@ let lexerStream = new lexer.stream(new input.stream(code));
 
 environment.def('import', function (callback, ...libs) {
     let success = true;
+    let defaultDir = "C:\\Users\\Elias\\Desktop\\kod\\Isle\\Github\\lib";
     try {
         for (let i = 0; i < libs.length; i++) {
-            Import.importLib(environment, libs[i], "C:\\Users\\Elias\\Desktop\\kod\\Isle\\Github\\lib");
+            Import.importLib(environment, libs[i], defaultDir);
         }
     } catch (e) {
         success = false;
