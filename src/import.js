@@ -87,13 +87,13 @@ function importLib(env, lib, defaultdir) {
         let functions = library.functions();
         for (let key in functions) {
             if (functions.hasOwnProperty(key)) {
-                let func = functions[key]
                 env.extend();
                 env.def(key, functions[key]);
             }
         }
     }
 }
+
 module.exports = {
     importLib: importLib
 };

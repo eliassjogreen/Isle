@@ -1,0 +1,5 @@
+import ("console");
+
+println (2 ** 3);
+
+# Prints 8

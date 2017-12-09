@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Isle playground</title>
+        <script src="lib/codemirror.js"></script>
+        <link rel="stylesheet" href="lib/codemirror.css">
+        <script src="lib/codemirror.js"></script>
+    </head>
+    <body>
+        <textarea id="editor"></textarea>
+        <button type="button" onclick="isle.Interpret(document.getElementById('editor').value);">Interpret</button>
+        <script type="text/javascript">
+            var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+                lineNumbers: true
+            });
+        </script>
+    </body>
+</html>

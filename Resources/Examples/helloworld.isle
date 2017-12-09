@@ -1,5 +1,5 @@
 import("console");
 
-println ("hello world!");
+console.println("hello world!");
 
 # Prints "hello world!"

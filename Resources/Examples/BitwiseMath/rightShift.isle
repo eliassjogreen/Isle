@@ -1,0 +1,5 @@
+import ("console");
+
+println (5 >> 1);
+
+# Prints 2

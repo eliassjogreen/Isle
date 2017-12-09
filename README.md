@@ -30,7 +30,7 @@ TODO
 #### Hello world example:
 
 ```
-import ("general");
+import ("console");
 
 println("hello world!");
 
@@ -40,7 +40,7 @@ println("hello world!");
 #### Fibonacci example:
 
 ```
-import ("general");
+import ("console");
 
 function fibonacci(n) {
 	if (n < 2){
