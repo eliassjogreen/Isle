@@ -18,6 +18,7 @@
 
 "use strict";
 
+(function() {
 if (typeof window !== 'undefined') {
     // From https://stackoverflow.com/a/19625245
     function require(url) {
@@ -59,13 +60,14 @@ if (typeof window !== 'undefined') {
     }
 
 }
+})();
 
-const env    = require('./env.js');
-const input  = require('./input.js');
-const lexer  = require('./lexer.js');
-const parser = require('./parser.js');
-const evaluate = require('./eval.js');
-const Import = require('./import.js');
+const env = require('./src/env.js');
+const input = require('./src/input.js');
+const lexer =  require('./src/lexer.js');
+const parser =  require('./src/parser.js');
+const eval = require('./src/eval.js');
+const Import = require('./src/import.js');
 
 (function() {
     var isle = class isle {

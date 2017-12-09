@@ -7,6 +7,7 @@
     * [ ] Compiler
     * [x] Interpreter
     * [ ] Tests
+    * [ ] Now kindof works in browser!
 * Core features
     * import
         * [ ] Improve browser and native support
