@@ -32,7 +32,7 @@ TODO
 ```
 import ("console");
 
-println("hello world!");
+console.println("hello world!");
 
 # Prints "hello world!"
 ```
@@ -50,7 +50,7 @@ function fibonacci(n) {
 	}
 }
 
-println(fibonacci(7));
+console.println(fibonacci(7));
 
 # Prints 21
 ```
