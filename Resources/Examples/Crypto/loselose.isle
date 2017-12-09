@@ -1,0 +1,5 @@
+import("crypto", "console");
+
+console.println(crypto.loselose("Hello world!"));
+
+# Prints 1117

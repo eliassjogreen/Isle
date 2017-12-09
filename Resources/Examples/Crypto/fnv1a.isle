@@ -1,0 +1,5 @@
+import("crypto", "console");
+
+console.println(crypto.fnv1a("Hello world!"));
+
+# Prints 3751280640

@@ -1,0 +1,6 @@
+import("crypto", "console");
+
+# Shift is 13 making it a ROT13 cipher
+console.println(crypto.caesarShift("Hello world!", 13));
+
+# Prints Uryyb jbeyq!

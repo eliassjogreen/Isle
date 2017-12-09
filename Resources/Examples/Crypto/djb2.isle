@@ -1,0 +1,5 @@
+import("crypto", "console");
+
+console.println(crypto.djb2("Hello world!"));
+
+# Prints 3240047842

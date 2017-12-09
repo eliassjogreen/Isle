@@ -18,6 +18,12 @@
     * Functions
         * [ ] Return statement
         * [x] Basic function support
+    * Data structures
+        * [x] Numbers
+            * [x] Floats
+            * [x] Integers
+        * [x] Strings
+        * [ ] Arrays
     * Math
         * [ ] Fix weird float rounding problem...
         * Integer math
@@ -71,9 +77,20 @@
         * [ ] Console
         * [ ] Math
         * [ ] Javascript
-    * Planned
         * [ ] Crypto
+            * [ ] Adler
+            * [ ] Fletcher
+            * [ ] Sha
+            * [ ] Bcrypt
+            * [ ] Scrypt
+            * [ ] Md
+            * [ ] Des
+            * [ ] Aes
+            * [ ] Murmur
+            * [ ] Blake
+    * Planned
         * [ ] Json
         * [ ] Xml
         * [ ] Web
         * [ ] Text
+        * [ ] Time
