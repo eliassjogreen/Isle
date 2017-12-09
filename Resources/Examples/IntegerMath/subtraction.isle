@@ -1,5 +1,5 @@
 import ("console");
 
-println (17 - 12);
+console.println (17 - 12);
 
 # Prints 5

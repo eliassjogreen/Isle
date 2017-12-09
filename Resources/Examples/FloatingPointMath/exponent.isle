@@ -1,5 +1,5 @@
 import ("console");
 
-println (1.5 ** 1.5);
+console.println (1.5 ** 1.5);
 
 # Prints 1.83711731

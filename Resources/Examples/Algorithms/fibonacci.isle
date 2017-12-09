@@ -8,6 +8,6 @@ function fibonacci(n) {
 	}
 }
 
-println(fibonacci(7));
+console.println(fibonacci(7));
 
 # Prints 21

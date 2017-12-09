@@ -1,9 +1,9 @@
 import ("console");
 
-println (2.7 % 2.7);
+console.println (2.7 % 2.7);
 
 # Prints 0
 
-println (2.5 % 2.0);
+console.println (2.5 % 2.0);
 
 # Prints 0.5

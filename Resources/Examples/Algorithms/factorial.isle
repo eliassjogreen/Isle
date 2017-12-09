@@ -8,6 +8,6 @@ function factorial(n) {
 	}
 }
 
-println(factorial(4));
+console.println(factorial(4));
 
 # Prints 24

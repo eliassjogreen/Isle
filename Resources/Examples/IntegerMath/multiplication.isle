@@ -1,5 +1,5 @@
 import ("console");
 
-println (2 * 4);
+console.println (2 * 4);
 
 # Prints 8

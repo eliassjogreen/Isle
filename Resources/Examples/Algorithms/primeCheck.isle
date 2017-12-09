@@ -17,6 +17,6 @@ function isPrime(n, d){
     }
 }
 
-println(isPrime(11, 0));
+console.println(isPrime(11, 0));
 
 # Prints true

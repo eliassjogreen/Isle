@@ -1,5 +1,5 @@
 import ("console");
 
-println (2.4 * 1.12);
+console.println (2.4 * 1.12);
 
 # Prints 2.69
