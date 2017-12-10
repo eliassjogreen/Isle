@@ -209,7 +209,16 @@ function parse(input) {
         return {
             type: "loop",
             times: parseExpression(),
-            body: parseProg()
+            body: parseExpression()
+        }
+    }
+
+    function parseWhile() {
+        skipKw("while");
+        return {
+            type: "while",
+            cond: parseExpression(),
+            then: parseExpression()
         }
     }
 
@@ -231,6 +240,7 @@ function parse(input) {
         if (isKw("function")) return parseFunction();
         if (isKw("if")) return parseIf();
         if (isKw("loop")) return parseLoop();
+        if (isKw("while")) return parseWhile();
         if (isKw("true") || isKw("false")) return parseBool();
         var tok = input.next();
         if (tok.type == "var" || tok.type == "num" || tok.type == "str")

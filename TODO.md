@@ -19,6 +19,7 @@
         * [ ] Return statement
         * [x] Basic function support
     * [x] Loop statement
+    * [x] While statement
     * Data structures
         * [x] Variables
         * [x] Numbers

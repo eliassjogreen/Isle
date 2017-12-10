@@ -1,4 +1,4 @@
-success = import("general", "console", "math");
+success = import("console", "math", "crypto");
 
 if (success) {
     console.println("Successfully imported libraries!");
@@ -6,6 +6,8 @@ if (success) {
         name = "Elias";
         console.println("Hello ", name, "!");
         console.println(math.pi());
+        name = crypto.djb2(name);
+        console.println("Your name hashed in djb2: ", name);
     }
 } else {
     console.println("Import of a library failed");

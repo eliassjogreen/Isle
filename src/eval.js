@@ -123,6 +123,17 @@ function evaluate(exp, env, callback) {
             }
             return;
 
+        case "while":
+            let condition;
+            evaluate(exp.cond, env, function(cond) { condition = cond });
+            while (condition) {
+                evaluate(exp.cond, env, function(cond) { condition = cond });
+                evaluate(exp.cond, env, function(cond) {
+                    if (cond !== false) evaluate(exp.then, env, callback);
+                });
+            }
+            return;
+
         case "prog":
             (function loop(last, i) {
                 if (i < exp.prog.length) evaluate(exp.prog[i], env, function(val) {
