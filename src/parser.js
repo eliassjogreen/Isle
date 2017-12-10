@@ -204,6 +204,12 @@ function parse(input) {
         };
     }*/
 
+
+    /**
+     * parseLoop - Parses loop statement
+     *
+     * @return {object} Returns a loop action tree node
+     */
     function parseLoop() {
         skipKw("loop");
         return {
@@ -213,6 +219,11 @@ function parse(input) {
         }
     }
 
+    /**
+     * parseWhile - Parses while statement
+     *
+     * @return {object} Returns a while action tree node
+     */
     function parseWhile() {
         skipKw("while");
         return {

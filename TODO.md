@@ -20,6 +20,7 @@
         * [x] Basic function support
     * [x] Loop statement
     * [x] While statement
+    * [ ] For loop statement
     * Data structures
         * [x] Variables
         * [x] Numbers
