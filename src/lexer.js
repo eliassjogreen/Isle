@@ -30,7 +30,7 @@ function stream(input) {
     var current = null;
 
     /** All of the keywords */
-    var keywords = ["function", "return", "if", "else", "true", "false"];
+    var keywords = ["function", "return", "if", "else", "loop", "true", "false"];
 
     /** The punctuation characters */
     var puncCh = ",;(){}[]";

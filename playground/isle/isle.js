@@ -76,9 +76,10 @@ const Import = require('./isle/import.js');
             this.inputStream = new input.stream(code);
             this.lexer = new lexer.stream(this.inputStream);
             this.ast = parser.parse(this.lexer);
-            evaluate.evaluate(this.ast, this.environment, function (result) {
+            evaluate.evaluate(this.ast, this.environment, return function (result) {
                 return result;
             });
+
         }
     }
 

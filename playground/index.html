@@ -7,10 +7,12 @@
         <link rel="stylesheet" href="lib/codemirror.css">
         <script src="lib/codemirror.js"></script>
         <script src="isle/isle.js"></script>
+        <script src="script.js"></script>
     </head>
-    <body>
+    <body style="font-family: consolas, Lucida Console, Courier, monospace;">
+        <h1 style="font-family: ">Isle playground</h1>
         <textarea id="editor"></textarea>
-        <button type="button" onclick="isle.Interpret(document.getElementById('editor').value);">Interpret</button>
+        <button type="button" onclick="interpretCode()">Interpret</button>
         <script type="text/javascript">
             var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
                 lineNumbers: true

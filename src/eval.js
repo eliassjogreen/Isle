@@ -115,6 +115,14 @@ function evaluate(exp, env, callback) {
             });
             return;
 
+        case "loop":
+            let times;
+            evaluate(exp.times, env, function(value) { times = value; });
+            for (let i = 0; i < times; i++) {
+                evaluate(exp.body, env, function () { });
+            }
+            return;
+
         case "prog":
             (function loop(last, i) {
                 if (i < exp.prog.length) evaluate(exp.prog[i], env, function(val) {

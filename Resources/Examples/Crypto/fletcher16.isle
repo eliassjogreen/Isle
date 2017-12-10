@@ -1,0 +1,5 @@
+import("crypto", "console");
+
+console.println(crypto.fletcher16("Hello world!"));
+
+# Prints 6753

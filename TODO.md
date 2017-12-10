@@ -18,7 +18,9 @@
     * Functions
         * [ ] Return statement
         * [x] Basic function support
+    * [x] Loop statement
     * Data structures
+        * [x] Variables
         * [x] Numbers
             * [x] Floats
             * [x] Integers
@@ -78,8 +80,18 @@
         * [ ] Math
         * [ ] Javascript
         * [ ] Crypto
-            * [ ] Adler
-            * [ ] Fletcher
+            * [x] djb2
+            * [x] djb2a
+            * [x] sdbm
+            * [x] lose lose
+            * [x] fnv1
+            * [x] fnv1a
+            * [x] Adler32
+            * [ ] fletcher4
+            * [ ] fletcher8
+            * [x] fletcher16
+            * [ ] fletcher32
+            * [ ] fletcher64
             * [ ] Sha
             * [ ] Bcrypt
             * [ ] Scrypt
@@ -88,6 +100,7 @@
             * [ ] Aes
             * [ ] Murmur
             * [ ] Blake
+            * [x] Caesar shift
     * Planned
         * [ ] Json
         * [ ] Xml

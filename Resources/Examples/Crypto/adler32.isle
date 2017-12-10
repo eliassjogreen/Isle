@@ -1,0 +1,5 @@
+import("crypto", "console");
+
+console.println(crypto.adler32("Hello world!"));
+
+# Prints 487130206

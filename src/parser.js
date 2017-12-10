@@ -37,7 +37,7 @@ function parse(input) {
       "<<": 9, ">>": 9,
       "+": 10, "-": 10,
       "*": 11, "/": 11, "%": 11,
-      "**": 12, 
+      "**": 12,
     };
 
     var FALSE = { type: "bool", value: false };
@@ -186,13 +186,31 @@ function parse(input) {
      * @return {object} Returns a function action tree node
      */
     function parseFunction() {
-    skipKw("function");
-      return {
-        type: "func",
-        name: parseVarname(),
-        params: delimited("(", ")", ",", parseVarname),
-        body: parseProg()
-      };
+        skipKw("function");
+        return {
+            type: "func",
+            name: parseVarname(),
+            params: delimited("(", ")", ",", parseVarname),
+            body: parseProg()
+        };
+    }
+
+    // TODO: Make return work!
+    /*function parseReturn() {
+        skipKw("return");
+        return {
+            type: "return",
+            value: parseAtom()
+        };
+    }*/
+
+    function parseLoop() {
+        skipKw("loop");
+        return {
+            type: "loop",
+            times: parseExpression(),
+            body: parseProg()
+        }
     }
 
     /**
@@ -212,6 +230,7 @@ function parse(input) {
         if (isPunc("{")) return parseProg();
         if (isKw("function")) return parseFunction();
         if (isKw("if")) return parseIf();
+        if (isKw("loop")) return parseLoop();
         if (isKw("true") || isKw("false")) return parseBool();
         var tok = input.next();
         if (tok.type == "var" || tok.type == "num" || tok.type == "str")
