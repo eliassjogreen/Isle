@@ -1,0 +1,11 @@
+import("console");
+
+function returntest(param) {
+    #return param + 2;
+    console.println("wowo");
+}
+
+returntest(5);
+#console.println(out);
+
+# Prints 7

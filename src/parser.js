@@ -196,13 +196,13 @@ function parse(input) {
     }
 
     // TODO: Make return work!
-    /*function parseReturn() {
+    function parseReturn() {
         skipKw("return");
         return {
             type: "return",
-            value: parseAtom()
+            value: parseExpression()
         };
-    }*/
+    }
 
 
     /**
@@ -249,6 +249,7 @@ function parse(input) {
 
         if (isPunc("{")) return parseProg();
         if (isKw("function")) return parseFunction();
+        if (isKw("return")) return parseReturn();
         if (isKw("if")) return parseIf();
         if (isKw("loop")) return parseLoop();
         if (isKw("while")) return parseWhile();

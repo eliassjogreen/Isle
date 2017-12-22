@@ -45,7 +45,7 @@ environment.def('import', function (callback, ...libs) {
 
 let ast = new parser.parse(lexerStream);
 
-//console.log(JSON.stringify(ast));
+console.log(JSON.stringify(ast));
 
 eval.evaluate(ast, environment, function (result) {
     //console.log(result);

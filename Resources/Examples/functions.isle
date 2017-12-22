@@ -1,0 +1,7 @@
+import("console");
+
+function helloworld() {
+    console.println("hello world!");
+}
+
+# Prints Hello world!

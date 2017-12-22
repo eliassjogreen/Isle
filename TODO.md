@@ -17,10 +17,15 @@
         * [ ] Isle libraries
     * Functions
         * [ ] Return statement
-        * [x] Basic function support
+        * [ ] Basic function support
     * [x] Loop statement
     * [x] While statement
     * [ ] For loop statement
+    * [ ] Error handling
+        * [ ] try
+        * [ ] catch
+        * [ ] final
+        * [ ] throw
     * Data structures
         * [x] Variables
         * [x] Numbers
